@@ -1,7 +1,6 @@
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, doc, runTransaction, query, orderBy } from "firebase/firestore";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import { getFirestore, collection, addDoc, getDocs, doc, runTransaction, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,6 +17,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Attach event listeners
+    document.getElementById('create-account-btn').addEventListener('click', createAccount);
+    document.getElementById('add-expense-btn').addEventListener('click', addExpense);
+
+    // Initial data load
     loadAccounts();
     loadExpenses();
 });
@@ -51,6 +55,7 @@ async function createAccount() {
         initialBalanceInput.value = '';
     } catch (e) {
         console.error("Error creating account: ", e);
+        alert("Error creating account. Check the console for more details.");
     }
 }
 

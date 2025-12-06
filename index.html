@@ -18,7 +18,7 @@
                 <div class="input-form">
                     <input type="text" id="account-name" placeholder="New Account Name">
                     <input type="number" id="initial-balance" placeholder="Initial Balance">
-                    <button onclick="createAccount()">Create Account</button>
+                    <button id="create-account-btn">Create Account</button>
                 </div>
                 <div id="accounts-list"></div>
             </section>
@@ -29,7 +29,7 @@
                     <select id="expense-account" aria-label="Select Account for Expense"></select>
                     <input type="text" id="expense-desc" placeholder="Expense Description">
                     <input type="number" id="expense-amount" placeholder="Amount">
-                    <button onclick="addExpense()">Add Expense</button>
+                    <button id="add-expense-btn">Add Expense</button>
                 </div>
                 <h3>Expense History</h3>
                 <ul id="expense-list" class="history-list">
@@ -41,6 +41,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
