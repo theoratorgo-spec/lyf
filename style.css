@@ -1,0 +1,134 @@
+/* 1. CSS VARIABLES (for easy theming) */
+:root {
+    /* Material-like primary color */
+    --primary-color: #3F51B5; /* Indigo 500 */
+    --primary-light: #C5CAE9; /* Indigo 100 */
+    --primary-text: #ffffff;
+
+    /* Backgrounds */
+    --background-color: #f5f5f5; /* Light Gray */
+    --surface-color: #ffffff; /* Card/Container background */
+    --text-color: #212121; /* Dark Gray */
+
+    /* Spacing */
+    --margin-default: 16px;
+    --padding-default: 16px;
+    --border-radius: 8px;
+}
+
+/* 2. BASE STYLES & MOBILE-FIRST */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Common Android font */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* Confines content to a typical phone width */
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: var(--padding-default);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+h2 {
+    font-size: 1.25em;
+    color: var(--primary-color);
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+}
+
+/* 3. APP BAR/HEADER STYLING (simulated) */
+section h2 {
+    /* Gives the heading section a clean separation */
+    background-color: var(--primary-light);
+    padding: 12px var(--padding-default);
+    margin-left: calc(0px - var(--padding-default)); /* Extends background to edge */
+    margin-right: calc(0px - var(--padding-default)); 
+}
+
+/* 4. CARD/SURFACE STYLING */
+.tracker-section {
+    background-color: var(--surface-color);
+    padding: var(--padding-default);
+    margin-bottom: var(--margin-default);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle elevation */
+}
+
+/* 5. INPUT & BUTTON STYLING (Flexbox for alignment) */
+.input-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.input-form input[type="text"],
+.input-form input[type="number"] {
+    flex-grow: 1; /* Inputs take up most of the space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-form button {
+    background-color: var(--primary-color);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-form button:hover {
+    background-color: #5C6BC0; /* A darker indigo for hover */
+}
+
+/* 6. LIST STYLING */
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-list li:last-child {
+    border-bottom: none;
+}
+
+.amount {
+    font-weight: bold;
+    color: #00897B; /* Teal-like color for money */
+}
+
+/* 7. PRAYER CHECKLIST (Flexbox for horizontal alignment) */
+.prayer-check-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.prayer-check-list label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    cursor: pointer;
+}
