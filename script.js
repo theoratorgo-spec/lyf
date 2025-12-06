@@ -108,4 +108,7 @@ async function loadExpenses() {
 function renderExpense(expense) {
     const list = document.getElementById('expense-list');
     const li = document.createElement('li');
-    // Default to 'date'
+    // Default to 'date' add this to my project so I can use database to store everything
+    li.textContent = `${expense.date}: ${expense.description} - $${expense.amount.toFixed(2)}`;
+    list.appendChild(li);
+}
