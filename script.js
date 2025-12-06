@@ -25,10 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Account Functions ---
 
 async function createAccount() {
-    const accountTypeInput = document.getElementById('account-type');
+    const accountNameInput = document.getElementById('account-name');
     const initialBalanceInput = document.getElementById('initial-balance');
-    const accountType = accountTypeInput.value;
+    const accountName = accountNameInput.value.trim();
     const initialBalance = parseFloat(initialBalanceInput.value);
+
+    if (accountName === '') {
+        alert('Please enter an account name.');
+        return;
+    }
 
     if (isNaN(initialBalance)) {
         alert('Please enter a valid initial balance.');
@@ -37,11 +42,12 @@ async function createAccount() {
 
     try {
         await addDoc(collection(db, "accounts"), {
-            name: accountType,
+            name: accountName,
             balance: initialBalance
         });
         console.log("Account created successfully.");
         loadAccounts();
+        accountNameInput.value = '';
         initialBalanceInput.value = '';
     } catch (e) {
         console.error("Error creating account: ", e);
@@ -105,7 +111,8 @@ async function addExpense() {
             const newBalance = accountDoc.data().balance - amount;
             transaction.update(accountRef, { balance: newBalance });
 
-            transaction.set(doc(collection(db, "expenses")), {
+            transaction.set(doc(collection(db, "expenses")),
+            {
                 accountId: accountId,
                 description: description,
                 amount: amount,

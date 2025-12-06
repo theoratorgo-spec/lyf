@@ -10,41 +10,35 @@
 <body>
 
     <div class="container">
-        <h1>📊 Financial Tracker</h1>
+        <h1>📊 POS Financial Tracker</h1>
 
-        <section class="tracker-section" id="accounts-section">
-            <h2>🏦 Accounts</h2>
-            <div class="input-form">
-                <select id="account-type">
-                    <option value="EBL Bank">EBL Bank</option>
-                    <option value="IFIC Bank">IFIC Bank</option>
-                    <option value="Cash">Cash</option>
-                </select>
-                <input type="number" id="initial-balance" placeholder="Initial Balance">
-                <button onclick="createAccount()">Create Account</button>
-            </div>
-            <div id="accounts-list"></div>
-        </section>
+        <div class="pos-grid">
+            <section class="tracker-section" id="accounts-section">
+                <h2>🏦 Manage Accounts</h2>
+                <div class="input-form">
+                    <input type="text" id="account-name" placeholder="New Account Name">
+                    <input type="number" id="initial-balance" placeholder="Initial Balance">
+                    <button onclick="createAccount()">Create Account</button>
+                </div>
+                <div id="accounts-list"></div>
+            </section>
 
-        <section class="tracker-section" id="expense-tracker">
-            <h2>💰 Daily Expenses</h2>
-            
-            <div class="input-form">
-                <select id="expense-account"></select>
-                <input type="text" id="expense-desc" placeholder="Description (e.g., Coffee, Bus)">
-                <input type="number" id="expense-amount" placeholder="Amount (e.g., 5.50)">
-                <button onclick="addExpense()">Add Expense</button>
-            </div>
-
-            <div class="summary">
-                <p>Today's Total: <span id="daily-total">0.00</span></p>
-            </div>
-
-            <h3>Expense History</h3>
-            <ul id="expense-list" class="history-list">
-            </ul>
-        </section>
-
+            <section class="tracker-section" id="expense-tracker">
+                <h2>💰 Add Expense</h2>
+                <div class="input-form">
+                    <select id="expense-account" aria-label="Select Account for Expense"></select>
+                    <input type="text" id="expense-desc" placeholder="Expense Description">
+                    <input type="number" id="expense-amount" placeholder="Amount">
+                    <button onclick="addExpense()">Add Expense</button>
+                </div>
+                <h3>Expense History</h3>
+                <ul id="expense-list" class="history-list">
+                </ul>
+                <div class="summary">
+                    <p>Today's Total: <span id="daily-total">0.00</span></p>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script src="script.js"></script>
