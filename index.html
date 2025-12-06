@@ -1,20 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Expense & Prayer Tracker</title>
+    <title>Financial Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>📊 Daily Tracker</h1>
+        <h1>📊 Financial Tracker</h1>
+
+        <section class="tracker-section" id="accounts-section">
+            <h2>🏦 Accounts</h2>
+            <div class="input-form">
+                <select id="account-type">
+                    <option value="EBL Bank">EBL Bank</option>
+                    <option value="IFIC Bank">IFIC Bank</option>
+                    <option value="Cash">Cash</option>
+                </select>
+                <input type="number" id="initial-balance" placeholder="Initial Balance">
+                <button onclick="createAccount()">Create Account</button>
+            </div>
+            <div id="accounts-list"></div>
+        </section>
 
         <section class="tracker-section" id="expense-tracker">
             <h2>💰 Daily Expenses</h2>
             
             <div class="input-form">
+                <select id="expense-account"></select>
                 <input type="text" id="expense-desc" placeholder="Description (e.g., Coffee, Bus)">
                 <input type="number" id="expense-amount" placeholder="Amount (e.g., 5.50)">
                 <button onclick="addExpense()">Add Expense</button>
@@ -26,43 +42,7 @@
 
             <h3>Expense History</h3>
             <ul id="expense-list" class="history-list">
-                </ul>
-        </section>
-
-        <section class="tracker-section" id="prayer-tracker">
-            <h2>🕌 Daily Prayers / Habits</h2>
-            
-            <div class="prayer-log">
-                <div class="daily-log">
-                    <p class="log-date">Today: <span id="current-date"></span></p>
-
-                    <div class="prayer-check-list">
-                        <label>
-                            <input type="checkbox" id="prayer-fajr"> Fajr
-                        </label>
-                        <label>
-                            <input type="checkbox" id="prayer-dhuhr"> Dhuhr
-                        </label>
-                        <label>
-                            <input type="checkbox" id="prayer-asr"> Asr
-                        </label>
-                        <label>
-                            <input type="checkbox" id="prayer-maghrib"> Maghrib
-                        </label>
-                        <label>
-                            <input type="checkbox" id="prayer-isha"> Isha
-                        </label>
-                        <label>
-                            <input type="checkbox" id="habit-reading"> Reading
-                        </label>
-                    </div>
-                    <button onclick="savePrayerLog()">Save Log</button>
-                </div>
-            </div>
-
-            <h3>Prayer Log History</h3>
-            <ul id="prayer-history-list" class="history-list">
-                </ul>
+            </ul>
         </section>
 
     </div>
